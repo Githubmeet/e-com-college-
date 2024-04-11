@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add to Cart</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        /* Custom CSS */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e6d8ad; /* Light clay color */
+        }
+
+        .jumbotron {
+            background-image: url('holi1.jpg');
+            background-color: #848a9077;
+            background-size: cover;
+            color: rgb(11, 0, 0);
+            text-align: center;
+            padding: 80px 0;
+            margin-bottom: 0;
+        }
+
+        .navbar {
+            background-color: #7b6852 !important; /* Dark clay color */
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .footer {
+            background-color: #7b6852; /* Dark clay color */
+            color: #f8f9fa; /* Light background color */
+            padding: 20px 0;
+            text-align: center;
+            text-decoration-color: #fff;
+        }
+
+        .containerssss {
+            max-width: 95%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-image {
+            max-width: 50%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .thumbnail-image {
+            max-width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .product-info {
+            align-items: center;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            color: #666;
+        }
+        .btn{
+            margin-top: 20px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        .quantity input {
+            width: 60px;
+            text-align: center;
+        }
+
+        .small-img-col {
+            flex-basis: 15%;
+            padding-top: 0.5px;
+            cursor: pointer;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .jumbotron {
+                padding: 60px 0;
+            }
+
+            .navbar-brand {
+                font-size: 1.2rem;
+            }
+        
+        .product-image {
+            max-width: 70%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .thumbnail-image {
+            /* max-width: 100%; */
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+        .small-img-col {
+            flex-basis: 25%;
+            padding-top: 0.1px;
+            cursor: pointer;
+        }
+    }
+
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-custom">
+        <div class="container">
+            <a class="navbar-brand" href="#">Eyewear</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.html">Cart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="loginLink" style="display: none;" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="logoutLink" href="#" onclick="logout()" style="display: none;">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Jumbotron -->
+    <div class="jumbotron">
+        <h1 class="display-4">Your Cart</h1>
+        <p class="lead">Review and manage the items in your cart.</p>
+    </div>
+
+    <div class="containerssss">
+        <div class="row">
+            <div class="col-md-6">
+                <img id="mainProductImage" src="p1.webp" alt="Product" class="product-image">
+                <div class="row mt-3">
+                    <div class="small-img-col">
+                        <img src="p1.webp" alt="Thumbnail 1" class="thumbnail-image" onclick="changeImage(this)">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="p1.1.webp" alt="Thumbnail 2" class="thumbnail-image" onclick="changeImage(this)">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="p1.2.jpg" alt="Thumbnail 3" class="thumbnail-image" onclick="changeImage(this)">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="p1.3.jpg" alt="Thumbnail 4" class="thumbnail-image" onclick="changeImage(this)">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="product-info">
+                    <h2>Vincent Chase</h2>
+                    <p>Silver Full Rim Aviator</p>
+                    <p><strong>₹1499</strong></p>
+                    <div class="quantity">
+                        <span>Quantity:</span>
+                        <input type="number" id="quantityInput" value="1" min="1">
+                    </div>
+                    <a href="cart.html">
+                        <button id="addToCartBtn" class="btn btn-primary">Add to Cart</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <span>Email: info@Eyewear.com</span><br>
+                    <span>Phone: +1 (555) 123-4567</span><br><br>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <h5>Follow Us</h5>
+                    <a href="#" class="text-white">Facebook</a> |
+                    <a href="#" class="text-white">Twitter</a> |
+                    <a href="#" class="text-white">Instagram</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
